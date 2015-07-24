@@ -20,4 +20,4 @@
               android:text="@string/zxing_msg_default_status"
               android:textColor="@color/zxing_status_text"/>
 </merge>
-<!-- From: file:/Users/hasudhakar/Desktop/node/tempCode/Nexmo%20Insight%20App/zxing-android-embedded/res/layout/zxing_barcode_scanner.xml --><!-- From: file:/Users/hasudhakar/Desktop/node/tempCode/Nexmo%20Insight%20App/zxing-android-embedded/build/intermediates/bundles/debug/res/layout/zxing_barcode_scanner.xml -->
+<!-- From: file:/Users/hasudhakar/Desktop/node/Nexmo%20Insight%20app/zxing-android-embedded/res/layout/zxing_barcode_scanner.xml --><!-- From: file:/Users/hasudhakar/Desktop/node/Nexmo%20Insight%20app/zxing-android-embedded/build/intermediates/bundles/debug/res/layout/zxing_barcode_scanner.xml -->

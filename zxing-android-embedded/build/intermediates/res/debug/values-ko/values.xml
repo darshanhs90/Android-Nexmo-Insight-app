@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/hasudhakar/Desktop/node/tempCode/Nexmo%20Insight%20App/zxing-android-embedded/res-orig/values-ko/zxing_strings.xml -->
+    <!-- From: file:/Users/hasudhakar/Desktop/node/Nexmo%20Insight%20app/zxing-android-embedded/res-orig/values-ko/zxing_strings.xml -->
     <eat-comment/>
     <string name="zxing_app_name">바코드 스캐너</string>
     <string name="zxing_button_ok">확인</string>

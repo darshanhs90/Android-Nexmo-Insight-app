@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- From: file:/Users/hasudhakar/Desktop/node/tempCode/Nexmo%20Insight%20App/zxing-android-embedded/res/values/zxing_colors.xml -->
+    <!-- From: file:/Users/hasudhakar/Desktop/node/Nexmo%20Insight%20app/zxing-android-embedded/res/values/zxing_colors.xml -->
     <eat-comment/>
     <color name="zxing_possible_result_points">#c0ffbd21</color>
     <color name="zxing_result_view">#b0000000</color>
@@ -8,7 +8,7 @@
     <color name="zxing_transparent">#00000000</color>
     <color name="zxing_viewfinder_laser">#ffcc0000</color>
     <color name="zxing_viewfinder_mask">#60000000</color>
-    <!-- From: file:/Users/hasudhakar/Desktop/node/tempCode/Nexmo%20Insight%20App/zxing-android-embedded/res/values/zxing_ids.xml -->
+    <!-- From: file:/Users/hasudhakar/Desktop/node/Nexmo%20Insight%20app/zxing-android-embedded/res/values/zxing_ids.xml -->
     <eat-comment/>
     <item name="zxing_back_button" type="id"/>
     <item name="zxing_camera_error" type="id"/>
@@ -17,13 +17,13 @@
     <item name="zxing_decode_succeeded" type="id"/>
     <item name="zxing_possible_result_points" type="id"/>
     <item name="zxing_prewiew_size_ready" type="id"/>
-    <!-- From: file:/Users/hasudhakar/Desktop/node/tempCode/Nexmo%20Insight%20App/zxing-android-embedded/res-orig/values/zxing_strings.xml -->
+    <!-- From: file:/Users/hasudhakar/Desktop/node/Nexmo%20Insight%20app/zxing-android-embedded/res-orig/values/zxing_strings.xml -->
     <eat-comment/>
     <string name="zxing_app_name">Barcode Scanner</string>
     <string name="zxing_button_ok">OK</string>
     <string name="zxing_msg_camera_framework_bug">Sorry, the Android camera encountered a problem. You may need to restart the device.</string>
     <string name="zxing_msg_default_status">Place a barcode inside the viewfinder rectangle to scan it.</string>
-    <!-- From: file:/Users/hasudhakar/Desktop/node/tempCode/Nexmo%20Insight%20App/zxing-android-embedded/res/values/zxing_themes.xml -->
+    <!-- From: file:/Users/hasudhakar/Desktop/node/Nexmo%20Insight%20app/zxing-android-embedded/res/values/zxing_themes.xml -->
     <eat-comment/>
     <style name="zxing_CaptureTheme" parent="android:Theme.Black.NoTitleBar.Fullscreen">
   </style>

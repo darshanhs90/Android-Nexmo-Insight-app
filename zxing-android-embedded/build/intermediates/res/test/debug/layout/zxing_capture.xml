@@ -23,4 +23,4 @@
         android:id="@+id/zxing_barcode_scanner"/>
 
 </merge>
-<!-- From: file:/Users/hasudhakar/Desktop/node/tempCode/Nexmo%20Insight%20App/zxing-android-embedded/res/layout/zxing_capture.xml --><!-- From: file:/Users/hasudhakar/Desktop/node/tempCode/Nexmo%20Insight%20App/zxing-android-embedded/build/intermediates/bundles/debug/res/layout/zxing_capture.xml -->
+<!-- From: file:/Users/hasudhakar/Desktop/node/Nexmo%20Insight%20app/zxing-android-embedded/res/layout/zxing_capture.xml --><!-- From: file:/Users/hasudhakar/Desktop/node/Nexmo%20Insight%20app/zxing-android-embedded/build/intermediates/bundles/debug/res/layout/zxing_capture.xml -->

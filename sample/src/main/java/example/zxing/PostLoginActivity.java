@@ -33,7 +33,6 @@ public class PostLoginActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.postloginactivity);
-        email=getIntent().getExtras().get("email").toString();
         Toast.makeText(getApplicationContext(),email,Toast.LENGTH_SHORT).show();
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);

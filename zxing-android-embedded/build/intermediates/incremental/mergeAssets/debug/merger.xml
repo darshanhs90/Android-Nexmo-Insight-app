@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/hasudhakar/Desktop/node/tempCode/Nexmo Insight App/zxing-android-embedded/assets"/></dataSet><dataSet config="debug"><source path="/Users/hasudhakar/Desktop/node/tempCode/Nexmo Insight App/zxing-android-embedded/src/debug/assets"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="/Users/hasudhakar/Desktop/node/Nexmo Insight app/zxing-android-embedded/assets"/></dataSet><dataSet config="debug"><source path="/Users/hasudhakar/Desktop/node/Nexmo Insight app/zxing-android-embedded/src/debug/assets"/></dataSet></merger>
