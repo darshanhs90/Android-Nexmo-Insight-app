@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/hasudhakar/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.0.0/support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/support-annotations-22.0.0-4def9f40eb662ab7fd76edcc26af8c3338364972.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Desktop/node/tempCode/Android-Techruit-App/sample/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="/Users/hasudhakar/Desktop/node/tempCode/Android-Techruit-App/sample/build/intermediates/pre-dexed/debug/classes-34ceb673c6e81937dd4388cb48f5c81f9e56e45e.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.3.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9066b6d4e2536b49e3b58aa301fd925247032df0">
+        <dex dex="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/classes-0b8d536fe67c0afbe5b90e9c961e86f839df4413.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Desktop/node/tempCode/Android-Techruit-App/sample/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="/Users/hasudhakar/Desktop/node/tempCode/Android-Techruit-App/sample/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-860deac18dcbaed5a2edd0cc89c94696c3c45266.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/classes-de7f7ce0b0e36c37307ee0077637cbab112d6de4.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Desktop/node/tempCode/Android-Techruit-App/sample/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/hasudhakar/Desktop/node/tempCode/Android-Techruit-App/sample/build/intermediates/pre-dexed/debug/classes-2d7df13ef6b4559f807c53960441891b1ad4cb60.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Desktop/node/tempCode/Android-Techruit-App/sample/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.3.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9066b6d4e2536b49e3b58aa301fd925247032df0">
+        <dex dex="/Users/hasudhakar/Desktop/node/tempCode/Android-Techruit-App/sample/build/intermediates/pre-dexed/debug/classes-348e23bc385966f809feec444c65e7783865ad87.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-analyzer/1.3.1/325e7401a7ea16918eb39ba8baad8fd5561a55d3/leakcanary-analyzer-1.3.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="325e7401a7ea16918eb39ba8baad8fd5561a55d3">
+        <dex dex="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/leakcanary-analyzer-1.3.1-a33cfc5e5c624221707f13daab262dceb4382f70.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Documents/workspace2/zxing-android-embedded/sample/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="/Users/hasudhakar/Documents/workspace2/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-9e71acf732497ebfc03143c3a259701145fb0e4c.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/libs/internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/internal_impl-22.0.0-8f077bc740a2d358b0d4dea391283aea8bb4718b.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/.gradle/caches/modules-2/files-2.1/com.squareup.leakcanary/leakcanary-watcher/1.3.1/6904771474c058abfc5912c13d12b02754712165/leakcanary-watcher-1.3.1.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6904771474c058abfc5912c13d12b02754712165">
+        <dex dex="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/leakcanary-watcher-1.3.1-47b113f5a5ddd1405da3b76d322f304ca3424fb5.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/.gradle/caches/modules-2/files-2.1/com.squareup.haha/haha/1.3/d2c832f9d14a11c79f58a7ee2e10526a12152c72/haha-1.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d2c832f9d14a11c79f58a7ee2e10526a12152c72">
+        <dex dex="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/haha-1.3-015ba7c72041c7d599f2c5ce7d9d384ec7e69dbd.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Documents/workspace2/zxing-android-embedded/sample/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="/Users/hasudhakar/Documents/workspace2/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/classes-1548ff918e28b2a09a2f45130a91175db07310da.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Documents/workspace2/zxing-android-embedded/sample/build/intermediates/exploded-aar/com.android.support/support-v4/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="/Users/hasudhakar/Documents/workspace2/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/classes-44bc12adc29acf12806f87684f8a5c3859d9e6b0.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.0/e019d15a13a9786f881141d2df6654b8510bce8b/core-3.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="e019d15a13a9786f881141d2df6654b8510bce8b">
+        <dex dex="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/core-3.2.0-871b4658a7551bb8cbf92e2cc820afbde14938ba.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.0.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/classes-af388db879b11d9334985f98873f40d416d19115.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Documents/workspace2/zxing-android-embedded/sample/build/intermediates/exploded-aar/com.squareup.leakcanary/leakcanary-android/1.3.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9066b6d4e2536b49e3b58aa301fd925247032df0">
+        <dex dex="/Users/hasudhakar/Documents/workspace2/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/classes-5061605f4dda7ca6f9b37857706183bacfae84b2.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.0.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3ebbcac82f9cbc554741f2f3144f22c168c4c847">
+        <dex dex="/Users/hasudhakar/Desktop/node/studio/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/classes-6a96cf66a009d0dfcd56cbc2b4696ff9c01cefa2.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Documents/workspace2/zxing-android-embedded/sample/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.0.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="845b73c9f924b3f7ca56519a00e64fd6b98ab939">
+        <dex dex="/Users/hasudhakar/Documents/workspace2/zxing-android-embedded/sample/build/intermediates/pre-dexed/debug/classes-704d13760e1da6639d3472da75d50131822a60ba.jar" />
+    </item>
+    <item
+        jar="/Users/hasudhakar/Desktop/node/tempCode/Android-Techruit-App/sample/build/intermediates/exploded-aar/com.journeyapps/zxing-android-embedded/3.0.1/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7a9e0b4eadfe38050201d0285a473238ee29457d">
+        <dex dex="/Users/hasudhakar/Desktop/node/tempCode/Android-Techruit-App/sample/build/intermediates/pre-dexed/debug/classes-127b46724934787c10bfdebc81d88ea2dde780fd.jar" />
+    </item>
+
+</items>
