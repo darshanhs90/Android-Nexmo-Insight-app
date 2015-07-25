@@ -15,35 +15,5 @@
         android:layout_gravity="center"
         android:layout_weight="0.01"/>
 
-    <WebView
-        android:id="@+id/pdfview"
-    android:layout_width="match_parent"
-    android:layout_height="0dp"
-    android:layout_weight="0.85"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.2"
-        android:orientation="horizontal"
-        android:weightSum="1">
-
-        <ImageButton
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/plusbutton" android:layout_weight="0.5"
-            android:src="@android:drawable/ic_input_add"/>
-
-        <ImageButton
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="New Button"
-            android:id="@+id/button2"
-            android:layout_weight="0.5"
-            android:src="@android:drawable/button_onoff_indicator_on"/>
-    </LinearLayout>
 
 </LinearLayout>

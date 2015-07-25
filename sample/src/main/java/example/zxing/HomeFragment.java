@@ -1,7 +1,10 @@
 package example.zxing;
 
+import android.content.ContentResolver;
+import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
@@ -89,21 +92,35 @@ public  class HomeFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         protected String doInBackground(String... args) {
             try {
 
-                List<NameValuePair> params = new ArrayList<NameValuePair>();
-                // params.add(new BasicNameValuePair("email", username));
-                // params.add(new BasicNameValuePair("password", password));
-                JSONObject j=(JSONObject)new JSONArrayParser().getJsonObject(LOGIN_URL);
+                ContentResolver cr = view.getContext().getContentResolver(); //Activity/Application android.content.Context
+                Cursor cursor = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
+                if(cursor.moveToFirst())
+                {
+                    lvArray = new ArrayList<String>();
+                    do
+                    {
+                        String id = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
 
-                Log.d("sasd",j+"");
-                Log.d("asd",j.get("data")+"");
-                JSONArray j1= (JSONArray) j.get("data");
-                Log.d("asd",j1+"");
-                lvArray=new ArrayList<String>();
-                for (int i = 0; i < j1.length() ; i++) {
-                    JSONObject jObj= (JSONObject) j1.get(i);
-                    lvArray.add(jObj.get("fname").toString());
+                        if(Integer.parseInt(cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))) > 0)
+                        {
+                            Cursor pCur = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = ?",new String[]{ id }, null);
+                            while (pCur.moveToNext())
+                            {
+                                Log.d("asd", pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)));
+                                Log.d("asd", pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.LAST_TIME_CONTACTED)));
+
+                                String contactNumber = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                                lvArray.add(contactNumber);
+                                Log.d("asd", contactNumber);
+                                break;
+                            }
+                            pCur.close();
+                        }
+
+                    } while (cursor.moveToNext()) ;
                 }
-
+                if(lvArray.size()==0)
+                    lvArray.add("No numbers to display");
                  arrayAdapter = new ArrayAdapter<String>(
                         view.getContext(),
                         android.R.layout.simple_list_item_1,

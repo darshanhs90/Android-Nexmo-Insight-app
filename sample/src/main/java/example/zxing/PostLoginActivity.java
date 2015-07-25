@@ -36,16 +36,12 @@ public class PostLoginActivity extends ActionBarActivity
         Toast.makeText(getApplicationContext(),email,Toast.LENGTH_SHORT).show();
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
 
-        // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
     }
-    public String getmail(){
-        return email;
-    }
+
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
@@ -58,18 +54,7 @@ public class PostLoginActivity extends ActionBarActivity
            case 1://qrscanner fragment
                fragmentManager.beginTransaction().replace(R.id.container, new ScanFragment()).commit();
                break;
-           case 2://jobs fragment
-               fragmentManager.beginTransaction().replace(R.id.container, new JobsFragment()).commit();
-               break;
-           case 3://applicants fragment
-               fragmentManager.beginTransaction().replace(R.id.container, new ApplicantsFragment()).commit();
-               break;
-           case 4://profile fragment
-               fragmentManager.beginTransaction().replace(R.id.container, new ProfileFragment()).commit();
-               break;
-           case 5://aboutus fragment
-               fragmentManager.beginTransaction().replace(R.id.container, new AboutUsFragment()).commit();
-               break;
+
        }
     }
 
@@ -81,18 +66,7 @@ public class PostLoginActivity extends ActionBarActivity
             case 2:
                 mTitle = getString(R.string.title_qrScanner);
                 break;
-            case 3:
-                mTitle = getString(R.string.title_jobs);
-                break;
-            case 4:
-                mTitle = getString(R.string.title_applicants);
-                break;
-            case 5:
-                mTitle = getString(R.string.title_profile);
-                break;
-            case 6:
-                mTitle = getString(R.string.title_aboutus);
-                break;
+
         }
     }
 
@@ -115,23 +89,6 @@ public class PostLoginActivity extends ActionBarActivity
             return true;
         }
         return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent=new Intent(this,LoginActivity.class);
-            startActivity(intent);
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     /**

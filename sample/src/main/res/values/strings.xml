@@ -10,12 +10,7 @@
 
 
     <string name="title_homepage">Homepage</string>
-    <string name="title_jobs">Job Listings</string>
-    <string name="title_applicants">Applicants List</string>
-
-    <string name="title_profile">Profile</string>
     <string name="title_qrScanner">QR Scanner</string>
-    <string name="title_aboutus">About Us</string>
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
