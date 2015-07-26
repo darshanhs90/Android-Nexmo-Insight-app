@@ -33,7 +33,6 @@ import android.widget.Toast;
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
 public class NavigationDrawerFragment extends Fragment {
-    SharedPreferences sharedPreferences;
     /**
      * Remember the position of the selected item.
      */
@@ -69,7 +68,6 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        sharedPreferences=getActivity().getSharedPreferences("Profile", getActivity().MODE_PRIVATE);
         // Read in the flag indicating whether or not the user has demonstrated awareness of the
         // drawer. See PREF_USER_LEARNED_DRAWER for details.
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -289,7 +287,8 @@ public class NavigationDrawerFragment extends Fragment {
         void onNavigationDrawerItemSelected(int position);
     }
     public static class F1 extends DialogFragment {
-
+        SharedPreferences sharedPreferences;
+        Boolean editable,nexmoValid;
         public static F1 newInstance() {
             F1 f1 = new F1();
             f1.setStyle(DialogFragment.STYLE_NO_FRAME, android.R.style.Theme_DeviceDefault_Dialog);
@@ -304,16 +303,51 @@ public class NavigationDrawerFragment extends Fragment {
 
             // Inflate the new view with margins and background
             View v = inflater.inflate(R.layout.popup_layout, container, false);
+
+            sharedPreferences=getActivity().getSharedPreferences("Profile", getActivity().MODE_PRIVATE);
+            editable=sharedPreferences.getBoolean("editable", false);
+            nexmoValid=sharedPreferences.getBoolean("nexmoValid", false);
+            final SharedPreferences.Editor editor=sharedPreferences.edit();
+            if(editable==true){
+                ((CheckBox)v.findViewById(R.id.cbEditing)).setChecked(true);
+            }
+            else{
+                ((CheckBox)v.findViewById(R.id.cbEditing)).setChecked(false);
+            }
+
+            if(nexmoValid==true){
+                ((CheckBox)v.findViewById(R.id.cbNexmoValidation)).setChecked(true);
+            }
+            else{
+                ((CheckBox)v.findViewById(R.id.cbNexmoValidation)).setChecked(false);
+            }
             v.findViewById(R.id.cbEditing).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                         Log.d("asd", ((CheckBox) v).isChecked() + "");
+                        if(((CheckBox) v).isChecked()==true){
+                            editor.putBoolean("editable", true);
+                            editor.putString("phonenum","");
+                            editor.commit();
+                        }
+                        else{
+                            editor.putBoolean("editable",false);
+                            editor.commit();
+                        }
                 }
             });
             v.findViewById(R.id.cbNexmoValidation).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Log.d("asd",((CheckBox)v).isChecked()+"");
+                    if(((CheckBox) v).isChecked()==true){
+                        editor.putBoolean("nexmoValid",true);
+                        editor.commit();
+                    }
+                    else{
+                        editor.putBoolean("nexmoValid",false);
+                        editor.commit();
+                    }
                 }
             });
             v.findViewById(R.id.popup_root).setOnClickListener(new View.OnClickListener() {

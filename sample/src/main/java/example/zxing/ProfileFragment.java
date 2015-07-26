@@ -114,10 +114,12 @@ public  class ProfileFragment extends Fragment{
     public void loadImageView(){
         ImageView ivQR= (ImageView) view.findViewById(R.id.ivQR);
         if(!name.contentEquals("") && !phone.contentEquals("")){
-            new LoadImage().execute("http://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=darshanhs&qzone=1&size=600x600&align=center");
+            String str="Name="+name+",Phone="+phone;
+            //nexmo call here
+            new LoadImage().execute("http://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data="+str+"&qzone=1&size=600x600&align=center");
         }
         else{
-            Toast.makeText(getActivity(),"Enter Name and Phone Number",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),"Enter Name and Phone Number Or Enable Editing",Toast.LENGTH_SHORT).show();
         }
 
     }
