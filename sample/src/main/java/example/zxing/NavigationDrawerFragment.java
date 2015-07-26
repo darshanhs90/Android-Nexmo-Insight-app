@@ -3,14 +3,18 @@ package example.zxing;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +23,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -28,7 +33,7 @@ import android.widget.Toast;
  * design guidelines</a> for a complete explanation of the behaviors implemented here.
  */
 public class NavigationDrawerFragment extends Fragment {
-
+    SharedPreferences sharedPreferences;
     /**
      * Remember the position of the selected item.
      */
@@ -64,7 +69,7 @@ public class NavigationDrawerFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        sharedPreferences=getActivity().getSharedPreferences("Profile", getActivity().MODE_PRIVATE);
         // Read in the flag indicating whether or not the user has demonstrated awareness of the
         // drawer. See PREF_USER_LEARNED_DRAWER for details.
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
@@ -251,6 +256,10 @@ public class NavigationDrawerFragment extends Fragment {
             Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
             return true;
         }
+        else if(item.getItemId() == R.id.action_settings) {
+            F1.newInstance().show(getFragmentManager(), null);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -279,4 +288,44 @@ public class NavigationDrawerFragment extends Fragment {
          */
         void onNavigationDrawerItemSelected(int position);
     }
+    public static class F1 extends DialogFragment {
+
+        public static F1 newInstance() {
+            F1 f1 = new F1();
+            f1.setStyle(DialogFragment.STYLE_NO_FRAME, android.R.style.Theme_DeviceDefault_Dialog);
+            return f1;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+            // Remove the default background
+            getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+            // Inflate the new view with margins and background
+            View v = inflater.inflate(R.layout.popup_layout, container, false);
+            v.findViewById(R.id.cbEditing).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        Log.d("asd", ((CheckBox) v).isChecked() + "");
+                }
+            });
+            v.findViewById(R.id.cbNexmoValidation).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("asd",((CheckBox)v).isChecked()+"");
+                }
+            });
+            v.findViewById(R.id.popup_root).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Log.d("asd", v.getId() + "root");
+                    dismiss();
+                }
+            });
+
+            return v;
+        }
+    }
+
 }

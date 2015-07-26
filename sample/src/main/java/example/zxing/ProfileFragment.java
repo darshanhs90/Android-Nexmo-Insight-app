@@ -48,6 +48,7 @@ public  class ProfileFragment extends Fragment{
     LinearLayout llName,llPhone,llButton;
     ImageView ivQR;
     SharedPreferences sharedPreferences;
+    Boolean editable;
     List<String> lvArray = new ArrayList<String>();
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -58,7 +59,17 @@ public  class ProfileFragment extends Fragment{
         llPhone= (LinearLayout) view.findViewById(R.id.llPhone);
         llButton= (LinearLayout) view.findViewById(R.id.llButton);
         Button bnClick= (Button) view.findViewById(R.id.bnClick);
-        
+        ivQR= (ImageView) view.findViewById(R.id.ivQR);
+        sharedPreferences=getActivity().getSharedPreferences("Profile", getActivity().MODE_PRIVATE);
+        name=sharedPreferences.getString("name", "");
+        phone=sharedPreferences.getString("phonenum", "");
+        editable=sharedPreferences.getBoolean("editable",true);
+        if(editable==true) {
+            llName.setVisibility(View.VISIBLE);
+            llPhone.setVisibility(View.VISIBLE);
+            llButton.setVisibility(View.VISIBLE);
+            ivQR.setVisibility(View.INVISIBLE);
+        }
         bnClick.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view1) {
@@ -69,33 +80,33 @@ public  class ProfileFragment extends Fragment{
                 loadImageView();
             }
         });
-        ivQR= (ImageView) view.findViewById(R.id.ivQR);
-        try {
-            Log.d("asdasd","asdasdasdasd12312312");
-            name= c.getString(c.getColumnIndex("display_name"));
-        }catch (Exception e)
-        {
-            e.printStackTrace();
-        }
-        c.close();
-        TelephonyManager tMgr = (TelephonyManager)getActivity().getSystemService(Context.TELEPHONY_SERVICE);
-        String mPhoneNumber = tMgr.getLine1Number();
+        if(editable==true) {
+            try {
+                name = c.getString(c.getColumnIndex("display_name"));
+                if(name==null)
+                    name="";
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            c.close();
+            TelephonyManager tMgr = (TelephonyManager) getActivity().getSystemService(Context.TELEPHONY_SERVICE);
+            String mPhoneNumber = tMgr.getLine1Number();
+            try {
+                if(mPhoneNumber!=null)
+                   phone = mPhoneNumber;
 
-        try {
-            Log.d("asdasd","asdasdasdasd12312312");
-            phone=mPhoneNumber;
-
-        }catch (Exception e)
-        {
-            e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        if(name.contentEquals("") || phone.contentEquals("")){
+        if(editable && (name.contentEquals("") || phone.contentEquals(""))){
             Toast.makeText(getActivity(),"Name and Phone Number Not Set in the Phone",Toast.LENGTH_SHORT).show();
             llName.setVisibility(View.VISIBLE);
             llPhone.setVisibility(View.VISIBLE);
             llButton.setVisibility(View.VISIBLE);
         }
         else {
+            Log.d("phonnumber3",phone);
             loadImageView();
         }
         return view;
@@ -103,7 +114,6 @@ public  class ProfileFragment extends Fragment{
     public void loadImageView(){
         ImageView ivQR= (ImageView) view.findViewById(R.id.ivQR);
         if(!name.contentEquals("") && !phone.contentEquals("")){
-
             new LoadImage().execute("http://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data=darshanhs&qzone=1&size=600x600&align=center");
         }
         else{
@@ -135,10 +145,15 @@ public  class ProfileFragment extends Fragment{
             if(image != null){
                 ivQR.setImageBitmap(image);
                 pDialog.dismiss();
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("name", name);
+                editor.putString("phonenum", phone);
+                editor.putBoolean("editable", false);
+                editor.commit();
                 ivQR.setVisibility(View.VISIBLE);
-                llPhone.setVisibility(View.GONE);
-                llName.setVisibility(View.GONE);
-                llButton.setVisibility(View.GONE);
+                llPhone.setVisibility(View.INVISIBLE);
+                llName.setVisibility(View.INVISIBLE);
+                llButton.setVisibility(View.INVISIBLE);
 
             }else{
 
