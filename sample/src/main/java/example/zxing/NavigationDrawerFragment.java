@@ -103,7 +103,8 @@ public class NavigationDrawerFragment extends Fragment {
                 android.R.id.text1,
                 new String[]{
                         getString(R.string.title_homepage),
-                        getString(R.string.title_qrScanner)
+                        getString(R.string.title_qrScanner),
+                        "My Profile"
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;

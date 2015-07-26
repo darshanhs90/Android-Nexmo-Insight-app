@@ -1,16 +1,15 @@
 package example.zxing;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -33,7 +32,6 @@ public class PostLoginActivity extends ActionBarActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.postloginactivity);
-        Toast.makeText(getApplicationContext(),email,Toast.LENGTH_SHORT).show();
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
 
@@ -54,7 +52,10 @@ public class PostLoginActivity extends ActionBarActivity
            case 1://qrscanner fragment
                fragmentManager.beginTransaction().replace(R.id.container, new ScanFragment()).commit();
                break;
-
+           case 2://profile fragment
+               Log.d("asd","asddddasd123aASDASDASD");
+               fragmentManager.beginTransaction().replace(R.id.container, new ProfileFragment()).commit();
+               break;
        }
     }
 
@@ -66,7 +67,10 @@ public class PostLoginActivity extends ActionBarActivity
             case 2:
                 mTitle = getString(R.string.title_qrScanner);
                 break;
-
+            default :
+                Log.d("asd","asddddasd123aASDASDASD");
+                mTitle = getString(R.string.title_profile);
+                break;
         }
     }
 

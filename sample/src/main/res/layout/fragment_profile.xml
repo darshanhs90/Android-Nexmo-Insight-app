@@ -12,128 +12,72 @@
     android:layout_height="0dp"
     android:layout_weight="0.2"
     android:orientation="horizontal"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:id="@+id/llName"
+    android:visibility="invisible"
+    >
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="First Name"
+        android:text="Name"
         android:id="@+id/tvFname" android:layout_weight="0.5"
         />
 
-    <TextView
+    <EditText
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="First Name Value"
-        android:id="@+id/tvFnameVal"
+        android:hint="Enter Name"
+        android:id="@+id/etName"
         android:layout_weight="0.5"/>
 </LinearLayout>
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.1"
+        android:layout_weight="0.2"
         android:orientation="horizontal"
-        android:weightSum="1">
+        android:weightSum="1"
+        android:id="@+id/llPhone"
+        android:visibility="invisible">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Last Name"
-            android:id="@+id/tvLname"
-            android:layout_weight="0.5"
+            android:text="Phone Number"
+            android:id="@+id/tvPhone" android:layout_weight="0.5"
             />
 
-        <TextView
+        <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Last Name Value"
-            android:id="@+id/tvLnameVal"
+            android:hint="Enter Phone Number"
+            android:id="@+id/etPhone"
             android:layout_weight="0.5"/>
     </LinearLayout>
-
-
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.1"
-        android:orientation="horizontal"
-        android:weightSum="1">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Email"
-            android:id="@+id/email" android:layout_weight="0.5"
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Email Value"
-            android:id="@+id/EmailVal"
-            android:layout_weight="0.5"/>
+        android:layout_weight="0.2"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:id="@+id/llButton"
+        android:visibility="invisible">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:id="@+id/bnClick"
+            android:text="Get QR Code" />
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
-        android:orientation="horizontal"
-        android:weightSum="1">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="University"
-            android:id="@+id/tvUniv" android:layout_weight="0.5"
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="University Value"
-            android:id="@+id/tvUnivVal"
-            android:layout_weight="0.5"/>
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.1"
-        android:orientation="horizontal"
-        android:weightSum="1">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Password"
-            android:id="@+id/tvPassword" android:layout_weight="0.5"
-            />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Password Value"
-            android:id="@+id/tvPasswordVal"
-            android:layout_weight="0.5"/>
-    </LinearLayout>
-
-
-        <WebView
+        <ImageView
             android:id="@+id/ivQR"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:layout_margin="20dp" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:visibility="invisible"/>
 
 </LinearLayout>
