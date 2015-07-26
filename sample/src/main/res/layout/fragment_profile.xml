@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:hint="Enter Phone Number"
-            android:inputType="number"
+            android:inputType="phone"
             android:id="@+id/etPhone"
             android:layout_weight="0.5"/>
     </LinearLayout>

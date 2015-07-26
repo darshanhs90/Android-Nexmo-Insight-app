@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="response" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
   </component>
   <component name="ChangeListManager">
@@ -29,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ProfileFragment.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProfileFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/example/zxing/ProfileFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66433567">
-              <caret line="117" column="29" selection-start-line="117" selection-start-column="29" selection-end-line="117" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="128" column="52" selection-start-line="128" selection-start-column="52" selection-end-line="128" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -45,9 +46,23 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.793103">
-              <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
+            <state vertical-scroll-proportion="-5.5172415">
+              <caret line="31" column="31" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="31" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeFragment.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sample/src/main/java/example/zxing/HomeFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6268657">
+              <caret line="171" column="20" selection-start-line="171" selection-start-column="20" selection-end-line="171" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2756#2757#0" expanded="true" />
+                <element signature="e#2828#2829#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2397,18 +2412,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/sample/src/main/java/example/zxing/HomeFragmentContact.java" />
-        <option value="$PROJECT_DIR$/sample/src/main/res/layout/fragment_scan.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/java/example/zxing/HomeFragment1.java" />
-        <option value="$PROJECT_DIR$/sample/src/main/java/example/zxing/HomeFragment.java" />
         <option value="$PROJECT_DIR$/sample/src/main/java/example/zxing/ScanFragment.java" />
         <option value="$PROJECT_DIR$/sample/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/java/example/zxing/PostLoginActivity.java" />
         <option value="$PROJECT_DIR$/sample/src/main/res/drawable-xhdpi/dialog_background.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/popup_layout.xml" />
-        <option value="$PROJECT_DIR$/sample/src/main/res/layout/fragment_profile.xml" />
+        <option value="$PROJECT_DIR$/sample/src/main/res/layout/fragment_scan.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/java/example/zxing/NavigationDrawerFragment.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/res/layout/fragment_profile.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/java/example/zxing/ProfileFragment.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/example/zxing/HomeFragment.java" />
       </list>
     </option>
   </component>
@@ -2455,7 +2470,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2615,8 +2631,16 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Nexmo Insight app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2628,14 +2652,18 @@
     <property name="OverrideImplement.combined" value="true" />
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="SearchEverywhereHistoryKey" value="btn_lo&#9;PSI&#9;JAVA://example.zxing.R.color#btn_login&#10;btn_logout&#9;PSI&#9;JAVA://example.zxing.R.string#btn_logout" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/sample/src/main/res/drawable-xxhdpi" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="example.zxing" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/sample/src/main/res/layout" />
+      <recent name="$PROJECT_DIR$/sample/src/main/res/drawable-xxhdpi" />
+      <recent name="$PROJECT_DIR$/sample/src/main/res/drawable-mdpi" />
       <recent name="$PROJECT_DIR$/sample/src/main/res/drawable-xhdpi" />
+      <recent name="$PROJECT_DIR$/sample/src/main/res/drawable-hdpi" />
+      <recent name="$PROJECT_DIR$/sample/src/main/res/drawable" />
     </key>
   </component>
   <component name="RunManager" selected="Android Application.sample">
@@ -2875,7 +2903,7 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32892805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32892805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32892805" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2911,12 +2939,27 @@
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/example/zxing/ProfileFragment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="117" column="29" selection-start-line="117" selection-start-column="29" selection-end-line="117" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/fragment_profile.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/example/zxing/ProfileFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#1503#1511#0" expanded="false" />
-            <element signature="e#2738#3143#0" expanded="false" />
-            <element signature="e#3142#3143#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2943,17 +2986,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3539604">
           <caret line="62" column="53" selection-start-line="62" selection-start-column="53" selection-end-line="62" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/fragment_scan.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3082,35 +3114,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/example/zxing/HomeFragment.java">
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/drawable/scan1.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/fragment_scan.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="118" column="85" selection-start-line="118" selection-start-column="80" selection-end-line="118" selection-end-column="85" />
+        <state vertical-scroll-proportion="0.4125">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/example/zxing/NavigationDrawerFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.034965">
-          <caret line="279" column="7" selection-start-line="279" selection-start-column="7" selection-end-line="279" selection-end-column="7" />
-          <folding>
-            <element signature="e#3666#3884#0" expanded="true" />
-            <element signature="e#3883#3884#0" expanded="true" />
-            <element signature="e#4152#4186#0" expanded="true" />
-            <element signature="e#4212#4247#0" expanded="true" />
-            <element signature="e#5852#5883#0" expanded="true" />
-            <element signature="e#5952#5984#0" expanded="true" />
-            <element signature="e#7592#7729#0" expanded="true" />
-            <element signature="e#7728#7729#0" expanded="true" />
-            <element signature="e#10576#10593#0" expanded="true" />
-            <element signature="e#12662#13290#0" expanded="true" />
-            <element signature="e#13289#13290#0" expanded="true" />
-            <element signature="e#13363#13893#0" expanded="true" />
-            <element signature="e#13892#13893#0" expanded="true" />
-            <element signature="e#13959#14176#0" expanded="true" />
-            <element signature="e#14175#14176#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.33333334">
+          <caret line="307" column="17" selection-start-line="307" selection-start-column="12" selection-end-line="307" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -3119,17 +3143,29 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.793103">
-          <caret line="55" column="38" selection-start-line="55" selection-start-column="38" selection-end-line="55" selection-end-column="38" />
+        <state vertical-scroll-proportion="-5.5172415">
+          <caret line="31" column="31" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/example/zxing/ProfileFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66433567">
-          <caret line="117" column="29" selection-start-line="117" selection-start-column="29" selection-end-line="117" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="128" column="52" selection-start-line="128" selection-start-column="52" selection-end-line="128" selection-end-column="52" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/example/zxing/HomeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6268657">
+          <caret line="171" column="20" selection-start-line="171" selection-start-column="20" selection-end-line="171" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2756#2757#0" expanded="true" />
+            <element signature="e#2828#2829#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

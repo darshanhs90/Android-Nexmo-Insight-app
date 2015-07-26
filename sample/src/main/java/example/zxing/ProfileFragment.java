@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,6 +48,7 @@ public  class ProfileFragment extends Fragment{
     Bitmap bitmap;
     LinearLayout llName,llPhone,llButton;
     ImageView ivQR;
+    EditText etPhone,etName;
     SharedPreferences sharedPreferences;
     Boolean editable;
     List<String> lvArray = new ArrayList<String>();
@@ -60,6 +62,9 @@ public  class ProfileFragment extends Fragment{
         llButton= (LinearLayout) view.findViewById(R.id.llButton);
         Button bnClick= (Button) view.findViewById(R.id.bnClick);
         ivQR= (ImageView) view.findViewById(R.id.ivQR);
+        etPhone= (EditText) view.findViewById(R.id.etPhone);
+        etName= (EditText) view.findViewById(R.id.etName);
+
         sharedPreferences=getActivity().getSharedPreferences("Profile", getActivity().MODE_PRIVATE);
         name=sharedPreferences.getString("name", "");
         phone=sharedPreferences.getString("phonenum", "");
@@ -93,7 +98,7 @@ public  class ProfileFragment extends Fragment{
             String mPhoneNumber = tMgr.getLine1Number();
             try {
                 if(mPhoneNumber!=null)
-                   phone = mPhoneNumber;
+                    phone = mPhoneNumber;
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -115,6 +120,14 @@ public  class ProfileFragment extends Fragment{
         ImageView ivQR= (ImageView) view.findViewById(R.id.ivQR);
         if(!name.contentEquals("") && !phone.contentEquals("")){
             String str="Name="+name+",Phone="+phone;
+            if(getActivity().getCurrentFocus()!=null && getActivity().getCurrentFocus() instanceof EditText){
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(etPhone.getWindowToken(), 0);
+            }
+            if(getActivity().getCurrentFocus()!=null && getActivity().getCurrentFocus() instanceof EditText){
+                InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(etName.getWindowToken(), 0);
+            }
             //nexmo call here
             new LoadImage().execute("http://api.qrserver.com/v1/create-qr-code/?color=000000&bgcolor=FFFFFF&data="+str+"&qzone=1&size=600x600&align=center");
         }
