@@ -41,8 +41,9 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
     ListView lv;
-    Boolean response;
+    Boolean response,webRedirect;
     View view;
+    private int lastExpandedPosition = -1;
     View childView;
     List<String> groupList;
     List<String> childList;
@@ -59,7 +60,7 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
         mSwipeView =(SwipeRefreshLayout)view.findViewById(R.id.swipe_viewhome);
-
+        webRedirect=false;
 
 
         // Instanciating an array list (you don't need to do this,
@@ -203,6 +204,18 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
                         //setGroupIndicatorToRight();
 
+                        expListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+
+                            @Override
+                            public void onGroupExpand(int groupPosition) {
+                                if (lastExpandedPosition != -1
+                                        && groupPosition != lastExpandedPosition) {
+                                    expListView.collapseGroup(lastExpandedPosition);
+                                }
+                                lastExpandedPosition = groupPosition;
+                            }
+                        });
+
                         expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
 
                             public boolean onChildClick(ExpandableListView parent, View v,
@@ -229,12 +242,14 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                                     }
                                     else{
                                         //start activity
-                                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
-                                        startActivity(browserIntent);
+                                        URL=LOGIN_URL1+number;
+                                        webRedirect=true;
                                     }
-                                    View view=parent.getChildAt(groupPosition);
-                                    childView=view;
-                                    childView.setBackgroundColor(Color.WHITE);
+
+                                    View groupView=expListView.getChildAt(groupPosition);
+                                    groupView.setBackgroundColor(Color.BLUE);
+                                    childView=groupView;
+                                    Log.d("child", childView + "");
                                     new GetResponse().execute();
                                     Toast.makeText(getActivity().getBaseContext(), selected, Toast.LENGTH_SHORT).show();
                                 }
@@ -281,7 +296,12 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                 {
                     response=false;
                 }
-
+                if(webRedirect && response){
+                    webRedirect=false;
+                    String carrierName=((JSONObject)j.get("current_carrier")).getString("name");
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q="+carrierName+"+recharge"));
+                    startActivity(browserIntent);
+                }
                 getActivity().runOnUiThread(new Runnable() {
 
                     @Override
