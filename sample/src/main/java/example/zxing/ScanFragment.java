@@ -1,43 +1,66 @@
 package example.zxing;
 
+import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.Contacts;
 import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
+import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.http.NameValuePair;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
-    private String toast;
+    private String toast,clickedNumber;
     SwipeRefreshLayout mSwipeView;
-    JSONArray jArray=new JSONArray();
-    ArrayAdapter<String> arrayAdapter;
-    private static final String LOGIN_URL = "http://techrecruit.site40.net/rec_retrieve.php";
+    ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
     ListView lv;
+    Boolean response;
     View view;
-    List<String> lvArray = new ArrayList<String>();
+    View childView;
+    List<String> groupList;
+    List<String> childList;
+    Map<String, List<String>> laptopCollection;
+    ExpandableListView expListView;
+    String LOGIN_URL1 = "https://api.nexmo.com/number/lookup/json?api_key=638c2b46&api_secret=60539549&number=";
+    String URL;
+    String LOGIN_URL2 = "https://api.nexmo.com/number/lookup/json?api_key=638c2b46&api_secret=60539549&number=";
+    HospitalListAdapter expListAdapter;
+    ArrayList<String[]> arrayList;
+    JSONArray jArray=new JSONArray();
+    ArrayAdapter<String> arrayAdapter;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-         view = inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
         mSwipeView =(SwipeRefreshLayout)view.findViewById(R.id.swipe_viewhome);
 
-        lv = (ListView) view.findViewById(R.id.list_viewhome);
+
 
         // Instanciating an array list (you don't need to do this,
         // you already have yours).
@@ -69,7 +92,47 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 //        jArray=new JSONArray();
         new GetList().execute();
     }
+    private void createGroupList() {
 
+    }
+
+    private void createCollection() {
+        // preparing laptops collection(child)
+
+
+        laptopCollection = new LinkedHashMap<String, List<String>>();
+
+        for (int i=0;i<groupList.size();i++) {
+            loadChild(arrayList.get(i));
+            //load child correesponding to its index
+
+            laptopCollection.put(groupList.get(i), childList);
+        }
+    }
+
+    private void loadChild(String[] laptopModels) {
+        childList = new ArrayList<String>();
+        for (String model : laptopModels)
+            childList.add(model);
+    }
+
+    private void setGroupIndicatorToRight() {
+        /* Get the screen width */
+        DisplayMetrics dm = new DisplayMetrics();
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width = dm.widthPixels;
+
+        expListView.setIndicatorBounds(width - getDipsFromPixel(35), width
+                - getDipsFromPixel(5));
+    }
+
+    // Convert pixel to dip
+    public int getDipsFromPixel(float pixels) {
+        // Get the screen's density scale
+        final float scale = getResources().getDisplayMetrics().density;
+        // Convert the dps to pixels, based on density scale
+        return (int) (pixels * scale + 0.5f);
+    }
 
 
     class GetList extends AsyncTask<String, String, String> {
@@ -85,12 +148,13 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         @Override
         protected String doInBackground(String... args) {
             try {
-
+                groupList = new ArrayList<String>();
+                arrayList=new ArrayList<String[]>();
+                int counter=0;
                 ContentResolver cr = view.getContext().getContentResolver(); //Activity/Application android.content.Context
                 Cursor cursor = cr.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
                 if(cursor.moveToFirst())
                 {
-                    lvArray = new ArrayList<String>();
                     do
                     {
                         String id = cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID));
@@ -100,11 +164,18 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                             Cursor pCur = cr.query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI,null, ContactsContract.CommonDataKinds.Phone.CONTACT_ID +" = ?",new String[]{ id }, null);
                             while (pCur.moveToNext())
                             {
-                                Log.d("asd", pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)));
-                                Log.d("asd", pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.LAST_TIME_CONTACTED)));
-
+                                String str[]=new String[4];
+                                String name=pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                                groupList.add(name);
                                 String contactNumber = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                                lvArray.add(contactNumber);
+                                str[0]=contactNumber;
+                                str[1]="Check Format";
+                                str[2]="Validate Number";
+                                str[3]="Recharge Number";
+                                arrayList.add(counter,str);
+                                counter++;
+                                Log.d("asd", name);
+                                Log.d("asd",(counter-1)+"");
                                 Log.d("asd", contactNumber);
                                 break;
                             }
@@ -113,18 +184,63 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
                     } while (cursor.moveToNext()) ;
                 }
-                if(lvArray.size()==0)
-                    lvArray.add("No numbers to display");
-                 arrayAdapter = new ArrayAdapter<String>(
-                        view.getContext(),
-                        android.R.layout.simple_list_item_1,
-                        lvArray );
+                if(arrayList.size()==0){
+                    String str[]=new String[1];
+                    groupList.add("No numbers to display");
+                    str[0]="No numbers to display";
+                    arrayList.add(str);
+                }
+
                 getActivity().runOnUiThread(new Runnable() {
 
                     @Override
                     public void run() {
+                        createCollection();
+                        expListView = (ExpandableListView) view.findViewById(R.id.laptop_list);
+                        expListAdapter = new HospitalListAdapter(getActivity(), groupList, laptopCollection);
 
-                        lv.setAdapter(arrayAdapter);
+                        expListView.setAdapter(expListAdapter);
+
+                        //setGroupIndicatorToRight();
+
+                        expListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+
+                            public boolean onChildClick(ExpandableListView parent, View v,
+                                                        int groupPosition, int childPosition, long id) {
+
+                                String selected = (String) expListAdapter.getChild(
+                                        groupPosition, childPosition);
+                                Log.d("asd",childPosition+"");
+                                String str[]=arrayList.get(groupPosition);
+                                String number=str[0];
+                                Log.d("asd",number);
+                                number=number.replace(" ","");
+                                number=number.replace("-","");
+                                clickedNumber=number;
+                                Log.d("follow",childPosition+"");
+                                if(childPosition!=0){
+                                    if(childPosition==1)
+                                    {
+                                        URL=LOGIN_URL1+number;
+                                    }
+                                    else if(childPosition==2)
+                                    {
+                                        URL=LOGIN_URL2+number;
+                                    }
+                                    else{
+                                        //start activity
+                                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com"));
+                                        startActivity(browserIntent);
+                                    }
+                                    View view=parent.getChildAt(groupPosition);
+                                    childView=view;
+                                    childView.setBackgroundColor(Color.WHITE);
+                                    new GetResponse().execute();
+                                    Toast.makeText(getActivity().getBaseContext(), selected, Toast.LENGTH_SHORT).show();
+                                }
+                                return true;
+                            }
+                        });
                     }
                 });
             } catch (Exception e) {
@@ -137,6 +253,57 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
 
         protected void onPostExecute(String file_url) {
 
+
+
+        }
+
+    }
+    class GetResponse extends AsyncTask<String, String, String> {
+
+        String phone;
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            pDialog = new ProgressDialog(getActivity());
+            pDialog.setMessage("Loading Image ....");
+            pDialog.show();
+        }
+
+        @Override
+        protected String doInBackground(String... args) {
+            try {
+                response=true;
+                Log.d("response",URL);
+                JSONObject j=(JSONObject)new JSONArrayParser().getJsonObject(URL);
+                Log.d("response", j + "");
+                String responseString=j.getString("status_message");
+                if(!responseString.contains("Success"))
+                {
+                    response=false;
+                }
+
+                getActivity().runOnUiThread(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        if(response){
+                            childView.setBackgroundColor(Color.GREEN);
+                        }
+                        else{
+                            childView.setBackgroundColor(Color.RED);
+                        }
+                    }
+                });
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+
+        }
+
+        protected void onPostExecute(String file_url) {
+            pDialog.dismiss();
 
 
         }
