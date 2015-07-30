@@ -1,7 +1,9 @@
 package example.zxing;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -32,19 +34,22 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 
 public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
     private String toast,clickedNumber;
+    String countryName,time;
     SwipeRefreshLayout mSwipeView;
     ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
     ListView lv;
-    Boolean response,webRedirect;
+    Boolean response,webRedirect,callNumber;
     View view;
     private int lastExpandedPosition = -1;
     View childView;
+    String phone;
     List<String> groupList;
     List<String> childList;
     Map<String, List<String>> laptopCollection;
@@ -171,7 +176,7 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                                 String contactNumber = pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                                 str[0]=contactNumber;
                                 str[1]="Check Format";
-                                str[2]="Validate Number";
+                                str[2]="Call Number";
                                 str[3]="Recharge Number";
                                 arrayList.add(counter,str);
                                 counter++;
@@ -239,6 +244,7 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                                     else if(childPosition==2)
                                     {
                                         URL=LOGIN_URL2+number;
+                                        callNumber=true;
                                     }
                                     else{
                                         //start activity
@@ -275,7 +281,7 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     }
     class GetResponse extends AsyncTask<String, String, String> {
 
-        String phone;
+
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
@@ -296,18 +302,23 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                 {
                     response=false;
                 }
+
                 if(webRedirect && response){
                     webRedirect=false;
                     String carrierName=((JSONObject)j.get("current_carrier")).getString("name");
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q="+carrierName+"+recharge"));
                     startActivity(browserIntent);
                 }
+                if(callNumber && response){
+                    countryName=j.getString("country_name");
+                    phone=j.getString("international_format_number");
+                    new GetResponseNew().execute();
+                }
                 getActivity().runOnUiThread(new Runnable() {
-
                     @Override
                     public void run() {
-                        if(response){
-                            childView.setBackgroundColor(Color.GREEN);
+                        if (response) {
+                                childView.setBackgroundColor(Color.GREEN);
                         }
                         else{
                             childView.setBackgroundColor(Color.RED);
@@ -329,7 +340,67 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
         }
 
     }
+    class GetResponseNew extends AsyncTask<String, String, String> {
 
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected String doInBackground(String... args) {
+            try {
+                response=true;
+                countryName=countryName.replace(" ","%20");
+                URL="https://api.worldweatheronline.com/free/v2/tz.ashx?q="+countryName+"&format=json&key=00752734b02136413e0b9e18f9d6a";
+                Log.d("asd",URL);
+                JSONObject j=(JSONObject)new JSONArrayParser().getJsonObject(URL);
+                Log.d("asd",j+"");
+                JSONObject data=((JSONObject)j.get("data"));
+                JSONArray timeZone=((JSONArray)data.get("time_zone"));
+                JSONObject timeObj=((JSONObject)timeZone.get(0));
+                time=timeObj.getString("localtime");
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+
+        }
+
+        protected void onPostExecute(String file_url) {
+            pDialog.dismiss();
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    new AlertDialog.Builder(getActivity())
+                            .setTitle("Nexmo Caller")
+                            .setMessage(" The timezone at the receivers country is "+time+" .Do you want to call?")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // continue with delete
+                                    Intent callIntent = new Intent(Intent.ACTION_CALL);
+                                    callIntent.setData(Uri.parse("tel:"+phone));
+                                    startActivity(callIntent);
+                                }
+                            })
+                            .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // do nothing
+                                    Toast.makeText(getActivity(), "Call Cancelled", Toast.LENGTH_SHORT).show();
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
+                }
+            });
+
+        }
+
+    }
 }
 
 
