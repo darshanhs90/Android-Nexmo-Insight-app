@@ -59,7 +59,9 @@ public class PostLoginActivity extends ActionBarActivity
            case 3://profile fragment
                fragmentManager.beginTransaction().replace(R.id.container, new RoamingFragment()).commit();
                break;
-
+           case 4://profile fragment
+               fragmentManager.beginTransaction().replace(R.id.container, new LocationFragment()).commit();
+               break;
        }
     }
 
