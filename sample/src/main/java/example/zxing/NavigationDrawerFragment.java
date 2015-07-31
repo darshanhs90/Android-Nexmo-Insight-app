@@ -107,7 +107,8 @@ public class NavigationDrawerFragment extends Fragment {
                 new String[]{
                         getString(R.string.title_homepage),
                         getString(R.string.title_qrScanner),
-                        "My Profile"
+                        "My Profile",
+                        "Roaming Info"
                 }));
         mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
         return mDrawerListView;

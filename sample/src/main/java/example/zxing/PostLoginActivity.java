@@ -54,9 +54,12 @@ public class PostLoginActivity extends ActionBarActivity
                fragmentManager.beginTransaction().replace(R.id.container, new ScanFragment()).commit();
                break;
            case 2://profile fragment
-               Log.d("asd","asddddasd123aASDASDASD");
                fragmentManager.beginTransaction().replace(R.id.container, new ProfileFragment()).commit();
                break;
+           case 3://profile fragment
+               fragmentManager.beginTransaction().replace(R.id.container, new RoamingFragment()).commit();
+               break;
+
        }
     }
 
@@ -68,8 +71,10 @@ public class PostLoginActivity extends ActionBarActivity
             case 2:
                 mTitle = getString(R.string.title_qrScanner);
                 break;
+            case 3:
+                mTitle = getString(R.string.title_roaming);
+                break;
             default :
-                Log.d("asd","asddddasd123aASDASDASD");
                 mTitle = getString(R.string.title_profile);
                 break;
         }

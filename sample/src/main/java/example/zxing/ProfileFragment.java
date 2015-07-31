@@ -140,6 +140,7 @@ public  class ProfileFragment extends Fragment{
     }
     public void loadImageView(){
         ImageView ivQR= (ImageView) view.findViewById(R.id.ivQR);
+        name=name.replace(" ","");
         String str="Name="+name+",Phone="+phone;
         if(getActivity().getCurrentFocus()!=null && getActivity().getCurrentFocus() instanceof EditText){
             InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -231,6 +232,7 @@ public  class ProfileFragment extends Fragment{
                             loadImageView();
                         }
                         else{
+                            pDialog.dismiss();
                             Toast.makeText(getActivity(),"Number is in Invalid Format",Toast.LENGTH_SHORT).show();
                         }
                     }

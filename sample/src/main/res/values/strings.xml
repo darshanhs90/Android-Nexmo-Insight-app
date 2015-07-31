@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Nexmo Share</string>
+    <string name="app_name">Number Share</string>
     <string name="scan_barcode">Scan Barcode</string>
     <string name="any_orientation">1D Any Orientation</string>
     <string name="scan_from_fragment">Scan from fragment</string>
@@ -11,6 +11,8 @@
     <string name="title_qrScanner">Numbers List</string>
     <string name="title_homepage">QR Scanner</string>
     <string name="title_profile">My Profile</string>
+    <string name="title_roaming">Roaming Info</string>
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

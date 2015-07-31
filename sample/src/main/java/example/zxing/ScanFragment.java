@@ -45,7 +45,7 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
     ProgressDialog pDialog;
     JSONParser jsonParser = new JSONParser();
     ListView lv;
-    Boolean response,webRedirect,callNumber;
+    Boolean response,webRedirect=false,callNumber=false;
     View view;
     private int lastExpandedPosition = -1;
     View childView;
@@ -257,7 +257,7 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                                     childView=groupView;
                                     Log.d("child", childView + "");
                                     new GetResponse().execute();
-                                    Toast.makeText(getActivity().getBaseContext(), selected, Toast.LENGTH_SHORT).show();
+                                   //Toast.makeText(getActivity().getBaseContext(), selected, Toast.LENGTH_SHORT).show();
                                 }
                                 return true;
                             }
@@ -306,6 +306,7 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                 if(webRedirect && response){
                     webRedirect=false;
                     String carrierName=((JSONObject)j.get("current_carrier")).getString("name");
+                    carrierName=carrierName.replace(" ","%20");
                     Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.google.com/search?q="+carrierName+"+recharge"));
                     startActivity(browserIntent);
                 }
@@ -319,9 +320,11 @@ public  class ScanFragment extends Fragment implements SwipeRefreshLayout.OnRefr
                     public void run() {
                         if (response) {
                                 childView.setBackgroundColor(Color.GREEN);
+                            Toast.makeText(getActivity().getBaseContext(), "Number Format Valid", Toast.LENGTH_SHORT).show();
                         }
                         else{
                             childView.setBackgroundColor(Color.RED);
+                            Toast.makeText(getActivity().getBaseContext(), "Number Format Invalid", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -99,55 +99,38 @@ public  class HomeFragment extends Fragment {
                 toast = "Cancelled from fragment";
             } else {
                 toast = "Scanned from fragment: " + result.getContents();
-
-                Cursor c = getActivity().getContentResolver().query(ContactsContract.Profile.CONTENT_URI, null, null, null, null);
-                c.moveToFirst();
-                try {
-                    Log.d("asdasd","asdasdasdasd12312312");
-                    Log.d("asd", c.getString(c.getColumnIndex("display_name")));
-                }catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-                c.close();
-                TelephonyManager tMgr = (TelephonyManager)getActivity().getSystemService(Context.TELEPHONY_SERVICE);
-                String mPhoneNumber = tMgr.getLine1Number();
-
-                try {
-                    Log.d("asdasd","asdasdasdasd12312312");
-                    Log.d("asdasd",mPhoneNumber);
-
-                }catch (Exception e)
-                {
-                    e.printStackTrace();
-                }
-
-                String str=result.getContents();
-                String strArray[]=str.split("Name");
-                name="";
-                if(strArray.length>=2) {
-                    name = strArray[1].substring(1, strArray[1].indexOf(",Phone"));
-                    Log.d("asd", strArray[1].substring(1, strArray[1].indexOf(",Phone")));
-                }
-                strArray=str.split("Phone");
-                phone="";
-                if(strArray.length>=2) {
-                    phone = strArray[1].substring(1);
-                    Log.d("asd", strArray[1].substring(1));
-                }
-                if(!phone.contentEquals("")) {
-                    response=true;
-                    Log.d("nexmo valid",nexmoValid+"");
-                    if(nexmoValid){
-                    //validate number
-                        Log.d("nexmo valid", "in nemxo valid");
-                        new GetList().execute();
+                String str = result.getContents();
+                Log.d("asd", str);
+                if (str.indexOf("Name") != -1 && str.indexOf("Phone") != -1) {
+                    String strArray[] = str.split("Name");
+                    name = "";
+                    if (strArray.length >= 2) {
+                        name = strArray[1].substring(1, strArray[1].indexOf(",Phone"));
+                        Log.d("asd", strArray[1].substring(1, strArray[1].indexOf(",Phone")));
                     }
+                    strArray = str.split("Phone");
+                    phone = "";
+                    if (strArray.length >= 2) {
+                        phone = strArray[1].substring(1);
+                        Log.d("asd", strArray[1].substring(1));
+                    }
+                    if (!phone.contentEquals("")) {
+                        response = true;
+                        Log.d("nexmo valid", nexmoValid + "");
+                        if (nexmoValid) {
+                            //validate number
+                            Log.d("nexmo valid", "in nemxo valid");
+                            new GetList().execute();
+                        }
+                    }
+                }
+                else{
+                    Toast.makeText(getActivity(),"Invalid QR code text : "+result.getContents(),Toast.LENGTH_SHORT).show();
                 }
             }
 
             // At this point we may or may not have a reference to the activity
-           // displayToast();
+            // displayToast();
         }
     }
     class GetList extends AsyncTask<String, String, String> {
@@ -190,7 +173,9 @@ public  class HomeFragment extends Fragment {
 
                     @Override
                     public void run() {
-
+                        if(response==false){
+                            Toast.makeText(getActivity(),"Invalid Phone number : "+phone,Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
             } catch (Exception e) {
