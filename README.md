@@ -25,7 +25,8 @@ Validate the number for its reachability Provide more info to the user regarding
 ##tl;dr 
 This is a android application to share the phone numbers using qr code and validate the shared phone numbers using Nexmo API
 
-##App Download Link https://s3-us-west-2.amazonaws.com/hackathonhacks/NumberShare.apk or https://s3-us-west-2.amazonaws.com/hackathonhacks/numbershare.apk
+##App Download Link 
+https://s3-us-west-2.amazonaws.com/hackathonhacks/NumberShare.apk or https://s3-us-west-2.amazonaws.com/hackathonhacks/numbershare.apk
 
 ##Built With
 android
